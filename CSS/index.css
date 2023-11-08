@@ -1,0 +1,471 @@
+/* 去掉li前面的点 */
+li {
+    list-style: none;
+    display: inline-block;
+}
+
+
+/* 去掉网页的内边框 */
+html, body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+/* 去掉超链接的字体装饰 */
+a {
+
+    text-decoration: none;
+    
+
+}
+
+.nav a {
+    color: #ffffff;
+    
+}
+
+/* 制作导航键 */
+.nav li {
+    float: right;
+    display: block;
+    color: #ffffff;
+    text-align: right;
+    padding: 10px 10px;
+    text-decoration: none;
+    box-sizing: border-box;/* 让 padding 不会撑大元素 */
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    z-index: 3;
+  }
+.nav li:nth-child(1) {
+    position: absolute; /* 设置绝对定位 */
+      right: 21%; /* 距离右侧为 720px */
+      bottom: 0; /* 距离底部为 0 */ 
+}
+
+.nav li:nth-child(2) {
+    position: absolute; /* 设置绝对定位 */
+      right: 30%; /* 距离右侧为 840 */
+      bottom: 0; /* 距离底部为 0 */ 
+}
+
+.nav li:nth-child(3) {
+    position: absolute; /* 设置绝对定位 */
+      right: 38%; /* 距离右侧为 0 */
+      bottom: 0; /* 距离底部为 0 */ 
+}
+.nav li:nth-child(4) {
+    position: absolute; /* 设置绝对定位 */
+      right: 45%; /* 距离右侧为 0 */
+      bottom: 0; /* 距离底部为 0 */ 
+}
+.nav li:nth-child(5) {
+    position: absolute; /* 设置绝对定位 */
+      left: 25%; /* 距离右侧为 0 */
+      bottom: 40px; /* 距离底部为 0 */ 
+}
+.nav li:nth-child(6) {
+    position: absolute; /* 设置绝对定位 */
+      right: 12%; /* 距离右侧为 0 */
+      bottom: 0; /* 距离底部为 0 */ 
+}
+
+
+.nav {
+    /* 这里做一个上面的导航 */
+    height: 100px;
+    width: 100%;
+    position: fixed;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 3;
+    
+}
+
+.nav::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 85px;
+    background: inherit; /* 与父元素相同的背景 */
+    backdrop-filter: blur(5px);
+    z-index: 2; /* 确保伪元素在底部 */
+  }
+
+
+
+main {
+    width: 1200px;
+    height: 2160px;
+    background-color: #ffffffeb;
+    position:relative;
+    top: 800px;
+    margin: auto;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* 现在我们来做鼠标反馈 */
+.nav li>a:active {
+    color: #828aff;
+}
+
+.nav li::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px; /* 设置横线高度 */
+    background-color: #828aff; /* 设置横线颜色，可以根据需要修改 */
+    transform: translateX(-50%); /* 初始时横线不可见 */
+    transform-origin: bottom center;
+    transition: transform 0.3s ease; /* 添加过渡效果 */
+}
+
+.nav li:hover::after {
+    width: 100%; /* 在鼠标悬停时横线可见 */
+    
+}
+
+/* 这里出现了bug,鼠标悬停在logo时也会出现直线,👴来修一下 */
+/* 草泥马,bug更多了 */
+/* 终于修好了 */
+.nav li#logo:hover::after {
+    width: 0%; /* 在鼠标悬停时横线不可见 */
+    
+}
+
+/* 我们来做静止的背景图罢 */
+body {
+    width: 100%;
+    background-image: url(../images/tree1.webp);
+    background-size: cover;
+    position: relative;
+    top: -16px;
+    background-attachment: fixed;
+}
+
+html{
+    width: 100%;
+    margin: 0;
+}
+
+/* 标题 */
+.head {
+    display:block;
+    color: #ffffff;
+    text-align: center;
+    font-size: 72px;
+    position: relative;
+    top: 300px;
+    margin: auto;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 0px;
+    margin-bottom: 10px;
+    width: 300px;
+    text-shadow: 11px 10px 5px rgb(0 0 0 / 73%); /* 阴影效果 */
+}
+
+.head#low {
+    font-size: 16px;
+    border-bottom: 0px solid #fff;
+    text-shadow: 11px 10px 5px rgb(0 0 0 / 100%);
+}
+
+/* 我们来开始做正文辣 */
+/* 正文第一部分 */
+div .h1 {
+    position: relative;
+    top: 70px;
+    left: 40px;
+    font-size: 72px;
+    color: #888888;
+    z-index: 2;
+   
+}
+
+/* 装饰性方块 */
+#square1 {
+    height: 70px;
+    width: 70px;
+    background-color: #ccddff;
+    position: relative;
+    top: -80px;
+    left: 10px;
+    z-index: 1;
+}
+
+/* 制作我们的背景故事 */
+.type {
+    width: 800px;
+    color: #888888;
+    position: relative;
+    left: 200px;
+    line-height: 30px;
+}
+.type#linethrough {
+    text-decoration: line-through;
+    text-decoration-thickness: 2px;
+}
+#p {
+    background-image: url(../images/triangle.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+    left: 200px;
+    background-position: 100px center;
+}
+
+/* 正文第二部分 */
+div .h2 {
+    position: relative;
+    top: 140px;
+    left: 40px;
+    font-size: 60px;
+    color: #888888;
+    z-index: 2;
+   
+}
+
+/* 还是装饰方块 */
+#square2 {
+    height: 70px;
+    width: 70px;
+    background-color: #ccddff;
+    position: relative;
+    top: 0px;
+    left: 10px;
+    z-index: 1;
+}
+
+
+/* 视频块 */
+div.videoHead {
+    width: 800px;
+    height: 400px;
+    margin: auto;
+    position: relative;
+    top: 100px;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 40px;
+    background-color: #66ccff;
+    background: linear-gradient(to bottom, #3498db, #828aff);
+}
+
+video {
+    width: 100%;
+    
+}
+
+
+
+/* 做下面附属的小视频 */
+.video{
+    width: 200px;
+    height: 150px;
+    background-color: #66ccff;
+    display: inline-block;
+    position: absolute;
+    left: 500px;
+    top:1550px;
+    text-align: center;
+    line-height: 150px;
+    background: linear-gradient(to bottom, #3498db, #828aff);
+}
+
+#video1{
+    left: 175px;
+}
+
+#video_1{
+    width: 200px;
+}
+
+#video2{
+    left: 395px;
+}
+
+#video_2{
+    width: 200px;
+}
+
+#video3{
+    left: 615px;
+}
+
+#video_3{
+    width: 200px;
+}
+
+#video4{
+    left: 835px;
+}
+
+
+/* 装饰性方块 */
+#square3 {
+    height: 70px;
+    width: 70px;
+    background-color: #ccddff;
+    position: absolute;
+    top: 1800px;
+    left: 10px;
+    z-index: 1;
+}
+
+
+.h3 {
+    position: absolute;
+    top: 1760px;
+    left: 40px;
+    font-size: 60px;
+    color: #888888;
+    z-index: 2;
+}
+/* 实现时间轴 */
+.timeline-container {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    /* background-color: #f4f4f4; */
+    position: absolute;
+ 
+  }
+
+  .timeline-container {
+    width: 80%;
+    margin: 50px auto;
+    overflow-x: auto;
+    white-space: nowrap;
+    position: absolute;
+    top: 1900px;
+    left: 150px;
+  }
+
+  .timeline-event {
+    display: inline-block;
+    width: 200px;
+    padding: 20px;
+    margin: 0 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  /* 时间轴样式 */
+.timeline-container {
+    width: 80%;
+    margin: 0 auto;
+    overflow-x: auto;
+    margin-top: 50px;
+}
+
+.timeline {
+    display: flex;
+    position: relative;
+    white-space: nowrap;
+}
+
+.timeline-event {
+    flex-shrink: 0;
+    width: 200px;
+    padding: 20px;
+    background-color: #3498db;
+    color: #fff;
+    border-radius: 5px;
+    margin-right: 20px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    /* 添加渐变 */
+    background: linear-gradient(to bottom, #3498db, #828aff);
+}
+
+.timeline-event h2 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.timeline-event p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+/* 时间轴遮罩样式 */
+.journey-mask {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 50px;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), #fff 50%);
+}
+
+
+
+/* 页脚 */
+footer { 
+    width: 1200px;
+    height: 340px;
+    margin: auto;
+    position: relative;
+    top: 800px;
+    
+}
+
+.link{
+    margin: 47px;
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    color: #ffffff;
+    vertical-align: top;
+    text-align: center;
+    line-height: 50px;
+    text-shadow: 11px 10px 5px rgb(0 0 0 / 100%); /* 阴影效果 */
+    position: relative;
+    left: -10px;
+}
+.front {
+    font-size: 24px;
+}
+.line {
+    height: 2px;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 11px 10px 5px rgb(0 0 0 / 100%);
+}
+
+
+#btn {
+    
+    margin: auto;
+    position: relative;
+    left: 100px;
+}
+
+
+.video0 {
+    width: 800px;
+    height: 400px;
+}
+
+/* 深夜模式加个过渡 */
+.color-transition {
+    transition: background-color 0.5s ease; /* 过渡时间为0.5秒，使用ease过渡函数（可根据需要调整） */
+}
+
+/* 按钮不随网页移动 */
+#btn {
+    position: fixed;
+    top: 50px;
+    /* 置于顶层 */
+    z-index: 1000;
+}
